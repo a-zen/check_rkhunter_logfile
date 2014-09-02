@@ -137,6 +137,7 @@ minutes!"
   exit ${EXIT_CRITICAL}
 fi
 
+w
 if [ "${curSuspectFiles}" -ge "${critSuspectFiles}" ]; then
   echo "CRITICAL: rkhunter found ${curSuspectFiles} suspected files!"
   exit ${EXIT_CRITICAL}
@@ -154,8 +155,7 @@ applications!"
 fi
 
 if [ "${curNumberOfWarnings}" -ge "${critNumberOfWarnings}" ]; then
-  echo "CRITICAL: rkhunter found ${curNumberOfWarnings} suspect \
-applications!"
+  echo "CRITICAL: rkhunter reported ${curNumberOfWarnings} warnings!"
   exit ${EXIT_CRITICAL}
 fi
 
@@ -184,8 +184,7 @@ applications!"
 fi
 
 if [ "${curNumberOfWarnings}" -ge "${warncritNumberOfWarnings}" ]; then
-  echo "WARNING: rkhunter found ${curNumberOfWarnings} suspect \
-applications!"
+  echo "WARNING: rkhunter reported ${curNumberOfWarnings} warnings!"
   exit ${EXIT_WARNING}
 fi
 
