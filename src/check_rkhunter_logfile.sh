@@ -137,7 +137,6 @@ minutes!"
   exit ${EXIT_CRITICAL}
 fi
 
-w
 if [ "${curSuspectFiles}" -ge "${critSuspectFiles}" ]; then
   echo "CRITICAL: rkhunter found ${curSuspectFiles} suspected files!"
   exit ${EXIT_CRITICAL}
