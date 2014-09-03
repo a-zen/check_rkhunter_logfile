@@ -19,7 +19,7 @@ EXIT_CRITICAL=$EXIT_ERROR
 EXIT_BUG=3
 EXIT_UNKNOWN=$EXIT_BUG
 
-VERSION=0.1
+VERSION=0.2
 
 # Variables
 #  -f
@@ -123,11 +123,31 @@ fi
 
 # get numbers of values
 curSuspectFiles=`grep "Suspect files:" ${logFile} | awk '{print $NF}'`
+if [ -z "${curSuspectFiles}" ]; then
+  echo "CRITICAL: could not parse log file for suspect files!"
+  exit ${EXIT_CRITICAL}
+fi
+
 curPossibleRootkits=`grep "Possible rootkits:" ${logFile} | awk '{print \
 $NF}'`
+if [ -z "${curPossibleRootkits}" ]; then
+  echo "CRITICAL: could not parse log file for possible rootkits!"
+  exit ${EXIT_CRITICAL}
+fi
+
 curSuspectApplications=`grep "Suspect applications:" ${logFile} | awk \
 '{print $NF}'`
+if [ -z "${curSuspectApplications}" ]; then
+  echo "CRITICAL: could not parse log file for suspect applications!"
+  exit ${EXIT_CRITICAL}
+fi
+
 curNumberOfWarnings=`grep "\[ Warning \]" ${logFile} | wc -l`
+if [ -z "${curSuspectFiles}" ]; then
+  echo "CRITICAL: could not parse log file for warnings!"
+  exit ${EXIT_CRITICAL}
+fi
+
 
 # check for criticals
 critOldFile=`find ${logFile} -mmin +${critFileAgeMinutes}`
