@@ -19,7 +19,7 @@ EXIT_CRITICAL=$EXIT_ERROR
 EXIT_BUG=3
 EXIT_UNKNOWN=$EXIT_BUG
 
-VERSION=0.2
+VERSION=0.3
 
 # Variables
 #  -f
@@ -202,7 +202,7 @@ applications!"
   exit ${EXIT_WARNING}
 fi
 
-if [ "${curNumberOfWarnings}" -ge "${warncritNumberOfWarnings}" ]; then
+if [ "${curNumberOfWarnings}" -ge "${warnNumberOfWarnings}" ]; then
   echo "WARNING: rkhunter reported ${curNumberOfWarnings} warnings!"
   exit ${EXIT_WARNING}
 fi
