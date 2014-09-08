@@ -19,7 +19,7 @@ EXIT_CRITICAL=$EXIT_ERROR
 EXIT_BUG=3
 EXIT_UNKNOWN=$EXIT_BUG
 
-VERSION=0.3
+VERSION=0.4
 
 # Variables
 #  -f
@@ -207,4 +207,5 @@ if [ "${curNumberOfWarnings}" -ge "${warnNumberOfWarnings}" ]; then
   exit ${EXIT_WARNING}
 fi
 
+echo "OK: rkhunter says everything fine"
 exit ${EXIT_OK}
